@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Pathfinder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pathfinding Visualizer is an interactive web application that allows users to visualize various pathfinding algorithms in action. Users can create custom grids of nodes representing different terrains. By selecting a starting point and an end point, users can watch algorithms like A\*, Dijkstra's, and Breadth-First Search find the shortest path while navigating around obstacles. The application provides real-time visualization, allowing users to understand how these algorithms work step by step. It's a valuable tool for learning and exploring the principles of pathfinding algorithms in a hands-on and visually engaging way.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Future Improvements and Development Plans](#future-improvements-and-development-plans)
+- [Existing Bugs](#existing-bugs)
+- [Project Credits and Development Timeline](#project-credits-and-development-timeline)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Interactive Grid
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Create custom grids by placing nodes representing different terrains.
+- Define start and end points to visualize pathfinding algorithms.
 
-### `npm test`
+### Algorithm Visualization
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Dijkstra's Algorithm:** Visualize the process of finding the shortest path using Dijkstra's algorithm.
+- **A\* Algorithm:** Find the shortest path using the A\* algorithm, considering node weights and obstacles.
+- **Breadth-First Search (BFS):** Explore paths in a breadth-first manner, suitable for unweighted graphs.
 
-### `npm run build`
+### Real-Time Visualization
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Observe the algorithms in action with step-by-step visualization of their exploration process.
+- Understand how algorithms navigate around obstacles and choose optimal paths.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### User Interaction
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Drag and Drop:** Easily set start and end points by clicking nodes.
+- **Obstacle Placement:** Add and remove obstacles by clicking and dragging nodes.
 
-### `npm run eject`
+### Educational Tool
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Ideal for learning the fundamentals of pathfinding algorithms.
+- Helps users grasp algorithmic concepts through interactive visualization.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Customization
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Adjust grid size and node placement to create scenarios of varying complexity.
+- Experiment with different algorithms to compare their performance.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Prerequisites
 
-## Learn More
+- Node.js and npm installed on your system.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository:
 
-### Code Splitting
+```
+git clone https://github.com/brianhyun/pathfinder.git
+cd pathfinder
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install dependencies for the application:
 
-### Analyzing the Bundle Size
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
 
-### Making a Progressive Web App
+1. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+npm run start
 
-### Advanced Configuration
+2. Open your browser and navigate to `http://localhost:3000` to use the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Improvements and Development Plans
 
-### Deployment
+### Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Change grid size.
+- Change pathfinding algorithm.
+- Slow animation speed.
 
-### `npm run build` fails to minify
+## Existing Bugs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Sometimes the boundary drawing function draws boundaries even when the mouse is not clicked but simply dragged.
+
+## Project Credits and Development Timeline
+
+### Developer
+
+- **Brian Hyun** - Sole Developer
+
+### Project Timeline
+
+- **Project Start Date:** 11/01/23
+- **Project Completion Date:** TBD
+- **Estimated Total Hours:** TBD
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgements
+
+- Thanks Abdul Bari for helping me understand pathfinding algorithms.
+- Hat tip to the developers of React and other open-source libraries used in this project.

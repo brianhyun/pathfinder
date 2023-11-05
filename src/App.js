@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import Grid from "./components/Grid";
 import Button from "./components/Button";
-import astar from "./algorithms/a-star";
 import dijkstra from "./algorithms/dijkstra";
 import { generateInitialGridState } from "./utils/gridUtils";
 
@@ -112,7 +111,12 @@ function App() {
       const updatedGrid = [...grid];
 
       // Call the pathfinding algorithm to find the shortest path
-      const path = await astar(updatedGrid, startNode, endNode, visualizeStep);
+      const path = await dijkstra(
+        updatedGrid,
+        startNode,
+        endNode,
+        visualizeStep
+      );
       console.log(path);
 
       // Return error if no path exists
