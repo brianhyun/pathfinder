@@ -134,6 +134,7 @@ function App() {
   return (
     <MainContainer>
       <AppContainer>
+        <h1>Pathfinder</h1>
         <Button onClick={handleFindPath}>Find Path</Button>
         <Grid
           rows={rows}
