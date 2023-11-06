@@ -17,17 +17,26 @@ const MainContainer = styled.main`
   box-sizing: border-box;
 `;
 
-const ContentSection = styled.div`
-  margin-top: 10px;
+const Section = styled.section`
+  margin-top: 20px;
 `;
 
-const ContentHeading = styled.h2`
+const SectionHeading = styled.h2`
   font-weight: 900;
   color: #353535;
   letter-spacing: 0em;
   font-size: 0.875rem;
   line-height: 1.25rem;
   text-transform: uppercase;
+`;
+
+const SectionDivider = styled.hr`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid lightgray;
 `;
 
 const List = styled.ol`
@@ -157,7 +166,7 @@ function App() {
   return (
     <AppContainer>
       <MainContainer>
-        <section id="heading">
+        <Section id="heading">
           <h1>Pathfinder</h1>
           <p style={{ marginTop: "4px" }}>
             Explore the world of algorithms in real-time with Pathfinder. This
@@ -166,16 +175,20 @@ function App() {
             as they navigate through mazes and obstacles, finding the shortest
             routes.
           </p>
-          <ContentSection>
-            <ContentHeading>Instructions</ContentHeading>
-            <List>
-              <li>Click to select a start node.</li>
-              <li>Click to select an end node.</li>
-              <li>Click and drag to create a boundary.</li>
-            </List>
-          </ContentSection>
-        </section>
-        <section id="grid">
+        </Section>
+
+        <SectionDivider />
+
+        <Section id="instructions">
+          <SectionHeading>Instructions</SectionHeading>
+          <List>
+            <li>Click to select a start node.</li>
+            <li>Click to select an end node.</li>
+            <li>Click and drag to create a boundary.</li>
+          </List>
+        </Section>
+
+        <Section id="grid">
           <Grid
             rows={rows}
             cols={cols}
@@ -211,7 +224,7 @@ function App() {
               Find path
             </Button>
           </div>
-        </section>
+        </Section>
       </MainContainer>
     </AppContainer>
   );
