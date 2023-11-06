@@ -1,6 +1,6 @@
 import "./App.css";
-import { useState } from "react";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 import Grid from "./components/Grid";
 import Button from "./components/Button";
@@ -17,8 +17,23 @@ const MainContainer = styled.main`
   box-sizing: border-box;
 `;
 
-const Description = styled.p`
+const ContentSection = styled.div`
+  margin-top: 10px;
+`;
+
+const ContentHeading = styled.h2`
+  font-weight: 900;
+  color: #353535;
+  letter-spacing: 0em;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+`;
+
+const List = styled.ol`
   margin-top: 4px;
+  padding-inline-start: 0px;
+  list-style-position: inside;
 `;
 
 function App() {
@@ -31,6 +46,11 @@ function App() {
   const [endNode, setEndNode] = useState(null);
   const [startNode, setStartNode] = useState(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(!(startNode && endNode));
+
+  useEffect(() => {
+    setButtonDisabled(!(startNode && endNode));
+  }, [startNode, endNode]);
 
   const onCellMouseDown = (row, col) => {
     setIsDrawing(true);
@@ -139,16 +159,23 @@ function App() {
       <MainContainer>
         <section id="heading">
           <h1>Pathfinder</h1>
-          <Description>
+          <p style={{ marginTop: "4px" }}>
             Explore the world of algorithms in real-time with Pathfinder. This
             interactive web application allows you to witness the magic of
             pathfinding algorithms like A*, Dijkstra's, and Breadth-First Search
             as they navigate through mazes and obstacles, finding the shortest
             routes.
-          </Description>
+          </p>
+          <ContentSection>
+            <ContentHeading>Instructions</ContentHeading>
+            <List>
+              <li>Click to select a start node.</li>
+              <li>Click to select an end node.</li>
+              <li>Click and drag to create a boundary.</li>
+            </List>
+          </ContentSection>
         </section>
         <section id="grid">
-          <Button onClick={handleFindPath}>Find path</Button>
           <Grid
             rows={rows}
             cols={cols}
@@ -158,6 +185,32 @@ function App() {
             onCellMouseDown={onCellMouseDown}
             onCellMouseEnter={onCellMouseEnter}
           />
+          <div
+            style={{
+              display: "flex",
+              marginTop: "14px",
+              alignItems: "center",
+              justifyContent: "end",
+            }}
+          >
+            <Button onClick={handleFindPath} disabled={buttonDisabled}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                style={{ width: "20px", height: "20px", marginRight: "8px" }}
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+              Find path
+            </Button>
+          </div>
         </section>
       </MainContainer>
     </AppContainer>

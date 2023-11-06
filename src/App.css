@@ -4,7 +4,16 @@ h1 {
   letter-spacing: -0.05em;
 }
 
-p {
+h2 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+p,
+li {
   color: #4e4e4e;
   font-size: 0.875rem;
   line-height: 1.25rem;
