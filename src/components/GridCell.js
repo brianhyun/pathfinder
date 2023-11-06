@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 const GridCell = styled.div`
-  width: 30px;
-  height: 30px;
+  flex: 1;
+  aspect-ratio: 1/1;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   background-color: ${(props) => {
-    if (props.cellType === "start") return "#219ebc";
-    else if (props.cellType === "visited") return "#8338ec";
-    else if (props.cellType === "path") return "#4f772d";
-    else if (props.cellType === "end") return "#fb8500";
-    else if (props.cellType === "boundary") return "#023047";
+    if (props.cellType === "start") return "#0a9396";
+    else if (props.cellType === "visited") return "#003049";
+    else if (props.cellType === "path") return "#bb3e03";
+    else if (props.cellType === "end") return "#ee9b00";
+    else if (props.cellType === "boundary") return "#001524";
     else return "#edede9";
   }};
 `;

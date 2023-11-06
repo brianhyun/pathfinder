@@ -7,15 +7,18 @@ import Button from "./components/Button";
 import dijkstra from "./algorithms/dijkstra";
 import { generateInitialGridState } from "./utils/gridUtils";
 
-const MainContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const AppContainer = styled.div``;
+
+const MainContainer = styled.main`
+  max-width: 600px;
+  margin: 0 auto; /* Center the container */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
-const AppContainer = styled.div`
-  padding: 20px;
-  min-width: 600px;
+const Description = styled.p`
+  margin-top: 4px;
 `;
 
 function App() {
@@ -132,21 +135,32 @@ function App() {
   };
 
   return (
-    <MainContainer>
-      <AppContainer>
-        <h1>Pathfinder</h1>
-        <Button onClick={handleFindPath}>Find Path</Button>
-        <Grid
-          rows={rows}
-          cols={cols}
-          grid={grid}
-          onCellClick={onCellClick}
-          onCellMouseUp={onCellMouseUp}
-          onCellMouseDown={onCellMouseDown}
-          onCellMouseEnter={onCellMouseEnter}
-        />
-      </AppContainer>
-    </MainContainer>
+    <AppContainer>
+      <MainContainer>
+        <section id="heading">
+          <h1>Pathfinder</h1>
+          <Description>
+            Explore the world of algorithms in real-time with Pathfinder. This
+            interactive web application allows you to witness the magic of
+            pathfinding algorithms like A*, Dijkstra's, and Breadth-First Search
+            as they navigate through mazes and obstacles, finding the shortest
+            routes.
+          </Description>
+        </section>
+        <section id="grid">
+          <Button onClick={handleFindPath}>Find path</Button>
+          <Grid
+            rows={rows}
+            cols={cols}
+            grid={grid}
+            onCellClick={onCellClick}
+            onCellMouseUp={onCellMouseUp}
+            onCellMouseDown={onCellMouseDown}
+            onCellMouseEnter={onCellMouseEnter}
+          />
+        </section>
+      </MainContainer>
+    </AppContainer>
   );
 }
 

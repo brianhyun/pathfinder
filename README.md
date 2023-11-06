@@ -104,5 +104,6 @@ This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.
 
 ## Acknowledgements
 
+- Thanks to Josh Comeau for the CSS Reset.
 - Thanks Abdul Bari for helping me understand pathfinding algorithms.
 - Hat tip to the developers of React and other open-source libraries used in this project.
