@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Grid from "./components/Grid";
 import Button from "./components/Button";
+import astar from "./algorithms/astar";
 import dijkstra from "./algorithms/dijkstra";
 import { generateInitialGridState } from "./utils/gridUtils";
 
@@ -113,7 +114,12 @@ function App() {
 
       const { row, col } = path[step];
       const updatedGrid = [...grid];
-      if (updatedGrid[row][col].type !== "end")
+      if (
+        !(
+          updatedGrid[row][col].type === "end" ||
+          updatedGrid[row][col].type === "start"
+        )
+      )
         updatedGrid[row][col].type = "path"; // Mark the cell as part of the path
       setGrid(updatedGrid);
 
@@ -143,12 +149,7 @@ function App() {
       const updatedGrid = [...grid];
 
       // Call the pathfinding algorithm to find the shortest path
-      const path = await dijkstra(
-        updatedGrid,
-        startNode,
-        endNode,
-        visualizeStep
-      );
+      const path = await astar(updatedGrid, startNode, endNode, visualizeStep);
       console.log(path);
 
       // Return error if no path exists
@@ -211,13 +212,13 @@ function App() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 style={{ width: "20px", height: "20px", marginRight: "8px" }}
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                 />
               </svg>

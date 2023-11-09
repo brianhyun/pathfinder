@@ -17,7 +17,7 @@ const Grid = ({
         <GridRow key={rowIndex}>
           {row.map((cell, colIndex) => (
             <GridCell
-              cellType={cell.type}
+              $cellType={cell.type}
               onMouseUp={onCellMouseUp}
               key={`${rowIndex}-${colIndex}`}
               onClick={() => onCellClick(rowIndex, colIndex)}
