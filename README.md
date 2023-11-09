@@ -1,6 +1,8 @@
 # Pathfinder
 
-Pathfinding Visualizer is an interactive web application that allows users to visualize various pathfinding algorithms in action. Users can create custom grids of nodes representing different terrains. By selecting a starting point and an end point, users can watch algorithms like A\*, Dijkstra's, and Breadth-First Search find the shortest path while navigating around obstacles. The application provides real-time visualization, allowing users to understand how these algorithms work step by step. It's a valuable tool for learning and exploring the principles of pathfinding algorithms in a hands-on and visually engaging way.
+Pathfinder is an interactive web application that allows users to visualize various pathfinding algorithms in action. Users can create custom grids of nodes representing different terrains. By selecting a starting point and an end point, users can watch algorithms like Dijkstra's, A\*, and Breadth-First Search find the shortest path while navigating around obstacles. The application provides real-time visualization, allowing users to understand how these algorithms work step by step. It's a valuable tool for learning and exploring the principles of pathfinding algorithms in a hands-on and visually engaging way.
+
+[![Watch the Demo Video](https://img.youtube.com/vi/osCdxkhpoNQ/0.jpg)](https://www.youtube.com/watch?v=osCdxkhpoNQ)
 
 ## Table of Contents
 
@@ -79,11 +81,13 @@ npm run start
 ### Customization
 
 - Change grid size.
-- Change pathfinding algorithm.
 - Slow animation speed.
 
 ## Existing Bugs
 
+- Have a button for clearing the grid.
+- Prevent drawing on the grid after a path has been found.
+- Hide "Find path" button after path has been found and replace with clear grid button.
 - Sometimes the boundary drawing function draws boundaries even when the mouse is not clicked but simply dragged.
 
 ## Project Credits and Development Timeline
