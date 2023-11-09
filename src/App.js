@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Grid from "./components/Grid";
 import Button from "./components/Button";
+import bfs from "./algorithms/bfs";
 import astar from "./algorithms/astar";
 import dijkstra from "./algorithms/dijkstra";
 import { generateInitialGridState } from "./utils/gridUtils";
@@ -44,6 +45,19 @@ const List = styled.ol`
   margin-top: 4px;
   padding-inline-start: 0px;
   list-style-position: inside;
+`;
+
+const Select = styled.select`
+  margin-top: 4px;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  background-position: right 2rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: spacing[10];
+  print-color-adjust: exact;
 `;
 
 function App() {
@@ -149,7 +163,16 @@ function App() {
       const updatedGrid = [...grid];
 
       // Call the pathfinding algorithm to find the shortest path
-      const path = await astar(updatedGrid, startNode, endNode, visualizeStep);
+      let path;
+
+      if (selectedAlgorithm === "dijkstra") {
+        path = await dijkstra(updatedGrid, startNode, endNode, visualizeStep);
+      } else if (selectedAlgorithm === "astar") {
+        path = await astar(updatedGrid, startNode, endNode, visualizeStep);
+      } else if (selectedAlgorithm === "bfs") {
+        path = await bfs(updatedGrid, startNode, endNode, visualizeStep);
+      }
+
       console.log(path);
 
       // Return error if no path exists
@@ -162,6 +185,12 @@ function App() {
     } else {
       alert("Please select start and end nodes before finding the path.");
     }
+  };
+
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState("dijkstra");
+
+  const handleAlgorithmSelect = (event) => {
+    setSelectedAlgorithm(event.target.value);
   };
 
   return (
@@ -183,10 +212,30 @@ function App() {
         <Section id="instructions">
           <SectionHeading>Instructions</SectionHeading>
           <List>
+            <li>Select a pathfinding algorithm.</li>
             <li>Click to select a start node.</li>
             <li>Click to select an end node.</li>
             <li>Click and drag to create a boundary.</li>
           </List>
+        </Section>
+
+        <SectionDivider />
+
+        <Section id="select-algorithm">
+          <SectionHeading>Select algorithm</SectionHeading>
+          <Select
+            name="algorithm"
+            id="algorithms"
+            value={selectedAlgorithm}
+            onChange={handleAlgorithmSelect}
+          >
+            <option value="" disabled>
+              Select an option
+            </option>
+            <option value="dijkstra">Dijkstra's</option>
+            <option value="astar">A*</option>
+            <option value="bfs">Breadth-First Search (BFS)</option>
+          </Select>
         </Section>
 
         <Section id="grid">
